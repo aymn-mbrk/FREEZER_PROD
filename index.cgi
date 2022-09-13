@@ -6,15 +6,16 @@ print ("")
 print("""<!DOCTYPE html>
 <html>
 <meta charset="utf-8">
- <body>
+
+<body>
    <form action="afficher.cgi" method="POST">
-    <fieldset>
-     <legend> Hello ! .. Voulez-vous afficher les machines ? </legend>
+     <legend> Se connecter a la base de donnes !  </legend>
+     <label>Username: <input type="text" name="username"></label><br/>
+     <label>Password: <input type="text" name="password"></label><br/>
     </fieldset>
-    <button>Afficher les machines</button>
+    <button>Sign in</button>
    </form>
 
-   <img src="https://media1.giphy.com/media/Lk023zZqHJ3Zz4rxtV/giphy.gif?cid=790b7611fb4392712e9883e649ee0435ce4377214c338d6d&rid=giphy.gif&ct=g" alt="W3Schools.com" style="width:500px;height:544.218px;">
 
  </body>
 </html>""")

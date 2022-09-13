@@ -17,6 +17,17 @@ cgitb.enable()
 input_data = cgi.FieldStorage()
 
 
+
+try:
+    username = str(input_data["username"].value)
+    #password = str(input_data["password"].value)
+    print('<output> Bienvenue : {0}</output><br>'.format(username,))
+except:
+    print('<output>Erreur</output>')
+
+
+
+
 # Connect to MariaDB Platform        
 try:
     conn = mariadb.connect(
