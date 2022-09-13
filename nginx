@@ -27,9 +27,13 @@ COPY index.cgi /usr/share/nginx/bdd/
 
 COPY afficher.cgi /usr/share/nginx/bdd/
 
+COPY choice.cgi /usr/share/nginx/bdd/
+
 RUN chmod 755 /usr/share/nginx/bdd/index.cgi
 
 RUN chmod 755 /usr/share/nginx/bdd/afficher.cgi
+
+RUN chmod 755 /usr/share/nginx/bdd/choice.cgi
 
 RUN mkdir /etc/nginx/ssl
 
