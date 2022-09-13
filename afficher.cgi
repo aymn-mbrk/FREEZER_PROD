@@ -22,7 +22,7 @@ try:
     conn = mariadb.connect(
     user="root",
     password="root",
-    host="172.21.0.3",
+    host="172.18.0.3",
     database="Music2"
     )
     print("\nConnexion a la base établie \n")
