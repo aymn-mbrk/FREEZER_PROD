@@ -8,6 +8,7 @@ print("""<!DOCTYPE html>
 <meta charset="utf-8">
 
 <body>
+lol
    <form action="afficher.cgi" method="POST">
      <legend> Se connecter a la base de donnes !  </legend>
      <label>Username: <input type="text" name="username"></label><br/>
