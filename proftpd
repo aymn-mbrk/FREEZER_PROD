@@ -10,8 +10,6 @@ RUN useradd -m coco
 
 RUN echo "coco:coco" | chpasswd
 
-RUN mkdir /home/coco
-
 RUN chown coco: /home/coco
 
 
