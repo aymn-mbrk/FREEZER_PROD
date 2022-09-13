@@ -2,7 +2,7 @@
 import cgi, cgitb
 import mariadb
 import sys
-
+import os
 
 print ("Content-Type: text/html")
 print ("")
@@ -20,9 +20,8 @@ input_data = cgi.FieldStorage()
 
 
 try:
-    username = str(input_data["username"].value)
-    #password = str(input_data["password"].value)
-    print('<output> Bienvenue : {0}</output><br>'.format(username,))
+    music = str(input_data["music"].value)
+    print('<output> Vous avez choisi : {0}</output><br>'.format(music,))
 except:
     print('<output>Erreur</output>')
 
@@ -41,14 +40,6 @@ try:
 except:
     print(f"Error connecting to MariaDB Platform:")
     sys.exit(1)  
-print("""    
-<form action="choice.cgi" method="POST">
-     <legend> make your choice !  </legend>
-     <label>Music: <input type="text" name="music"></label><br/>
-    </fieldset>
-    <button>Sumbit</button>
-   </form>""")
-
 
 # Get Cursor
 try:
@@ -57,14 +48,15 @@ try:
 except:
     print("not ok")
 
-cur.execute("SELECT * FROM playlist;")
+cur.execute("SELECT * FROM playlist WHERE User='user1';")
 for line in cur:
     print(line)
     print("""<br>""")
 
 
-print(""" <form action="index.cgi" method="POST">
+print(""" <form action="afficher.cgi" method="POST">
    <button>Retour</button>
   </form>""")
 
 print("""</body></html>""")
+
