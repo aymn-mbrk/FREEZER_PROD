@@ -1,0 +1,18 @@
+FROM archlinux
+
+COPY proftpd.pkg.tar.zst /
+RUN pacman -Sy
+RUN pacman -S mariadb-libs postgresql-libs hiredis libsodium --noconfirm
+
+RUN pacman -U /proftpd.pkg.tar.zst --noconfirm
+
+RUN useradd -m coco
+
+RUN echo "coco:coco" | chpasswd
+
+RUN mkdir /home/coco
+
+RUN chown coco: /home/coco
+
+
+CMD ["proftpd", "--nodaemon"]

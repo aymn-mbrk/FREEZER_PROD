@@ -1,0 +1,37 @@
+services:
+  mariadb:
+    container_name: "mariadb_docker"
+    build: 
+      context: .
+      dockerfile: "mariadb"
+    networks:
+      - "freezer_network"
+    ports :
+      - "3306:3306"
+      
+  proftpd:
+    container_name: "proftpd_docker"
+    build:
+      context: .
+      dockerfile: "proftpd"
+    ports :
+      - "21:21"
+    networks:
+      - "freezer_network"
+
+  nginx:
+    build:
+      context: .
+      dockerfile: "nginx" 
+    container_name: "nginx_docker"
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - "mariadb"
+    networks:  
+       - "freezer_network"
+
+networks:
+  freezer_network:
+    driver: "bridge"
