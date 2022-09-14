@@ -10,7 +10,7 @@ services:
       # persist data files into `datadir` volume managed by docker
       - datadir:/var/lib/mysql
       # bind-mount any sql files that should be run while initializing
-      - ./schema.sql:/docker-entrypoint-initdb.d/tables.sql
+      - ./tables.sql:/docker-entrypoint-initdb.d/tables.sql
     container_name: "mariadb_docker"
     build:  
       context: .
@@ -46,3 +46,6 @@ services:
 networks:
   freezer_network:
     driver: "bridge"
+
+volumes:
+  datadir: /var/lib/mysql
