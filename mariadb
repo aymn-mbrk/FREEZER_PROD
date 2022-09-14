@@ -5,11 +5,6 @@ FROM mariadb
 RUN ["sed", "-i", "s/exec \"$@\"/echo \"not running $@\"/", "/usr/local/bin/docker-entrypoint.sh"]
 
 # needed for intialization
-ENV MYSQL_ROOT_PASSWORD=root
-ENV MYSQL_ALLOW_EMPTY_PASSWORD=1
-ENV MYSQL_DATABASE=Music
-ENV MYSQL_USER=hime
-ENV MYSQL_PASSWORD=hime
 
 COPY tables.sql /docker-entrypoint-initdb.d/
 
@@ -17,17 +12,19 @@ COPY tables.sql /docker-entrypoint-initdb.d/
 # https://docs.docker.com/engine/reference/builder/#volume :
 #       Changing the volume from within the Dockerfile: If any build steps change the data within the volume after
 #       it has been declared, those changes will be discarded.
-RUN ["/usr/local/bin/docker-entrypoint.sh", "mysqld", "--datadir", "/initialized-db", "--aria-log-dir-path", "/initialized-db"]
-
 
 # needed for intialization
 ENV MYSQL_ROOT_PASSWORD=root
 ENV MYSQL_ALLOW_EMPTY_ROOT_PASSWORD=1
-ENV MARIADB_DATABASE=Music2
+ENV MARIADB_DATABASE=Music
 ENV MARIADB_USER=hime
 ENV MARIADB_PASSWORD=hime
 ENV MARIADB_RANDOM_ROOT_PASSWORD=root
 
  #COPY /initialized-db /var/lib/mysql
+
+RUN ["/usr/local/bin/docker-entrypoint.sh", "mysqld", "--datadir", "/initialized-db", "--aria-log-dir-path", "/initialized-db"]
+
+
 
 EXPOSE 3306
