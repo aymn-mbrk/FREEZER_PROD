@@ -32,8 +32,8 @@ except:
 # Connect to MariaDB Platform        
 try:
     conn = mariadb.connect(
-    user="root",
-    password="root",
+    user="hime",
+    password="hime",
     host="149.50.0.4",
     database="Music2"
     )
