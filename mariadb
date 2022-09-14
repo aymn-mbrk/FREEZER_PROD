@@ -27,6 +27,6 @@ ENV MARIADB_DATABASE=Music
 ENV MARIADB_USER=hime
 ENV MARIADB_PASSWORD=hime
 
-COPY --from=builder /initialized-db /var/lib/mysql
+ #COPY /initialized-db /var/lib/mysql
 
 EXPOSE 3306
