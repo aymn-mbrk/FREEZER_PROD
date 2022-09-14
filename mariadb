@@ -19,7 +19,6 @@ COPY tables.sql /docker-entrypoint-initdb.d/
 #       it has been declared, those changes will be discarded.
 RUN ["/usr/local/bin/docker-entrypoint.sh", "mysqld", "--datadir", "/initialized-db", "--aria-log-dir-path", "/initialized-db"]
 
-FROM projet_mariadb:latest
 
 # needed for intialization
 ENV MARIADB_ROOT_PASSWORD=root
