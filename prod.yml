@@ -1,7 +1,9 @@
 services:
   mariadb:
+    image: "projet_mariadb"
     container_name: "mariadb_docker"
-    build: 
+    restart: always
+    build: yes 
       context: .
       dockerfile: "mariadb"
     networks:
