@@ -1,11 +1,11 @@
 services:
   mariadb:
+    image: "projet_mariadb"
     container_name: "mariadb_docker"
     build: 
       context: .
       dockerfile: "mariadb"
-      image: "projet_mariadb"
-    networks:
+          networks:
       - "freezer_network"
     ports :
       - "3306:3306"
