@@ -1,4 +1,4 @@
-FROM projet_mariadb:
+FROM projet_mariadb:latest
 
 
 # That file does the DB initialization but also runs mysql daemon, by removing the last line it will only init
