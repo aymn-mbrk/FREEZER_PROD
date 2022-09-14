@@ -34,7 +34,7 @@ try:
     conn = mariadb.connect(
     user="root",
     password="root",
-    host="192.168.0.2",
+    host="149.50.0.4",
     database="Music2"
     )
     print("\nConnexion a la base établie \n")
