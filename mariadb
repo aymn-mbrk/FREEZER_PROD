@@ -31,6 +31,9 @@ ENV MARIADB_PASSWORD=root
 
 COPY tables.sql /docker-entrypoint-initdb.d/
 
+RUN ["/usr/local/bin/docker-entrypoint.sh", "mysqld", "--datadir", "/initialized-db", "--aria-log-dir-path", "/initialized-db"]
+
+
 COPY --from=builder /initialized-db /var/lib/mysql
 
 EXPOSE 3306
