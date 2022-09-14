@@ -21,9 +21,9 @@ RUN ["/usr/local/bin/docker-entrypoint.sh", "mysqld", "--datadir", "/initialized
 
 
 # needed for intialization
-ENV MARIADB_ROOT_PASSWORD=root
-ENV MARIADB_ALLOW_EMPTY_ROOT_PASSWORD=1
-ENV MARIADB_DATABASE=Music
+ENV MYSQL_ROOT_PASSWORD=root
+ENV MYSQL_ALLOW_EMPTY_ROOT_PASSWORD=1
+ENV MARIADB_DATABASE=Music2
 ENV MARIADB_USER=hime
 ENV MARIADB_PASSWORD=hime
 
