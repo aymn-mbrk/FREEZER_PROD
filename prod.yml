@@ -48,4 +48,5 @@ networks:
     driver: "bridge"
 
 volumes:
-  datadir: /var/lib/mysql
+  datadir:
+    external: true
