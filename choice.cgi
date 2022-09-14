@@ -32,7 +32,7 @@ try:
     conn = mariadb.connect(
         user="root",
         password="root",
-        host="172.18.0.3",
+        host="192.168.0.2",
         database="Music2"
     )
 except mariadb.Error as e:

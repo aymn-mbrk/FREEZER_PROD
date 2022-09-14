@@ -1,6 +1,6 @@
 FROM nginx
 
-RUN apt update
+#RUN apt update
 
 
 RUN apt --yes install python3

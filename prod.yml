@@ -1,3 +1,5 @@
+version: "2.4"
+
 services:
   mariadb:
     container_name: "mariadb_docker"
@@ -5,7 +7,8 @@ services:
       context: .
       dockerfile: "mariadb"
     networks:
-      - "freezer_network"
+      freezer_network:
+        ipv4_address: 192.168.0.2
     ports :
       - "3306:3306"
       
@@ -17,7 +20,8 @@ services:
     ports :
       - "21:21"
     networks:
-      - "freezer_network"
+      freezer_network:
+        ipv4_address: 192.168.0.3
 
   nginx:
     build:
@@ -29,10 +33,17 @@ services:
       - "443:443"
     depends_on:
       - "mariadb"
-    networks:  
-       - "freezer_network"
+    networks:
+      freezer_network:
+        ipv4_address: 192.168.0.4
+
 
 networks:
   freezer_network:
     driver: "bridge"
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.0.0/24
+          gateway: 192.168.0.1
 
