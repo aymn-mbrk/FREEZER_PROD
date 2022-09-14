@@ -4,6 +4,7 @@ services:
     build: 
       context: .
       dockerfile: "mariadb"
+      image: "projet_mariadb"
     networks:
       - "freezer_network"
     ports :
