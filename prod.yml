@@ -3,7 +3,7 @@ services:
     image: "projet_mariadb"
     container_name: "mariadb_docker"
     restart: always
-    build: yes 
+    build:  
       context: .
       dockerfile: "mariadb"
     networks:
