@@ -6,11 +6,6 @@ services:
     build:  
       context: .
       dockerfile: "mariadb"
-    environment:
-      MARIADB_ROOT_PASSWORD: root
-      MARIADB_ALLOW_EMPTY_PASSWORD: 1
-      MARIADB_RANDOM_ROOT_PASSWORD: root
-
     networks:
       freezer_network:
         ipv4_address: 149.50.0.2
@@ -49,6 +44,6 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: 149.50.0.0/24
+        - subnet: 149.50.0.0/16
           gateway: 149.50.0.1
 
