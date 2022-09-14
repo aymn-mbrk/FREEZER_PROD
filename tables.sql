@@ -1,5 +1,3 @@
-CREATE TABLE Music2;
-
 CREATE TABLE Music2.playlist (ID INT AUTO_INCREMENT PRIMARY KEY, User TEXT, Title TEXT, Artist TEXT);
 
 INSERT INTO Music2.playlist (User, Title, Artist) VALUES ("maissae", "Bad Romance", "Lady Gaga");

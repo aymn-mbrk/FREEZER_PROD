@@ -5,7 +5,6 @@ FROM mariadb
 
 # needed for intialization
 
-COPY tables.sql /docker-entrypoint-initdb.d/
 
 # Need to change the datadir to something else that /var/lib/mysql because the parent docker file defines it as a volume.
 # https://docs.docker.com/engine/reference/builder/#volume :
@@ -20,10 +19,11 @@ ENV MARIADB_USER=hime
 ENV MARIADB_PASSWORD=hime
 ENV MARIADB_RANDOM_ROOT_PASSWORD=root
 
+COPY tables.sql /docker-entrypoint-initdb.d/
  #COPY /initialized-db /var/lib/mysql
-#RUN ["sed", "-i", "s/exec \"$@\"/echo \"not running $@\"/", "/usr/local/bin/docker-entrypoint.sh"]
+RUN ["sed", "-i", "s/exec \"$@\"/echo \"not running $@\"/", "/usr/local/bin/docker-entrypoint.sh"]
 
-#RUN ["/usr/local/bin/docker-entrypoint.sh", "mysqld", "--datadir", "/initialized-db", "--aria-log-dir-path", "/initialized-db"]
+RUN ["/usr/local/bin/docker-entrypoint.sh", "mysqld", "--datadir", "/initialized-db", "--aria-log-dir-path", "/initialized-db"]
 
 
 
