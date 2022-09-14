@@ -1,8 +1,17 @@
 services:
   mariadb:
-    image: "projet_mariadb"
+    image: "mariadb:latest"
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: Music2
+      MARIADB_USER: root
+      MARIADB_PASSWORD: 1234
+    volumes:
+      # persist data files into `datadir` volume managed by docker
+      - datadir:/var/lib/mysql
+      # bind-mount any sql files that should be run while initializing
+      - ./schema.sql:/docker-entrypoint-initdb.d/tables.sql
     container_name: "mariadb_docker"
-    restart: always
     build:  
       context: .
       dockerfile: "mariadb"
