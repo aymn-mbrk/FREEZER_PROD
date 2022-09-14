@@ -29,6 +29,8 @@ ENV MARIADB_DATABASE=Music
 ENV MARIADB_USER=root
 ENV MARIADB_PASSWORD=root
 
+COPY tables.sql /docker-entrypoint-initdb.d/
+
 COPY --from=builder /initialized-db /var/lib/mysql
 
 EXPOSE 3306
