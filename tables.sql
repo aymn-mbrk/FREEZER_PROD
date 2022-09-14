@@ -3,7 +3,14 @@ use Music2;
 
 CREATE TABLE playlist (ID INT AUTO_INCREMENT PRIMARY KEY, User TEXT, Title TEXT, Artist TEXT);
 
-INSERT INTO playlist (User, Title, Artist) VALUES ("user2", "Bad Romance", "Lady Gaga");
-INSERT INTO playlist (User, Title, Artist) VALUES ("user1", "Pink Venom", "Blackpink");
-INSERT INTO playlist (User, Title, Artist) VALUES ("user3", "Umbrella", "Rihanna");
+INSERT INTO playlist (User, Title, Artist) VALUES ("maissae", "Bad Romance", "Lady Gaga");
+INSERT INTO playlist (User, Title, Artist) VALUES ("waleed", "Pink Venom", "Blackpink");
+INSERT INTO playlist (User, Title, Artist) VALUES ("khadija", "Umbrella", "Rihanna");
 
+
+CREATE TABLE connexion (ID INT AUTO_INCREMENT PRIMARY KEY, User TEXT, Password TEXT);
+
+INSERT INTO connexion (User, Password) VALUES ("khadija", "khadija");
+INSERT INTO connexion (User, Password) VALUES ("aymane", "aymane");
+INSERT INTO connexion (User, Password) VALUES ("maissae", "maissae");
+INSERT INTO connexion (User, Password) VALUES ("waleed", "waleed");
